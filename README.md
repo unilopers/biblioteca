@@ -6,3 +6,4 @@
  - Fernanda Tozzi Honorio
  - Gustavo Farias Ferreira
  - Alexksandro Fernandes de Queiroz
+ - Kalebe Furlan de OLiveira
