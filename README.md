@@ -7,3 +7,6 @@
  - Gustavo Farias Ferreira
  - Alexksandro Fernandes de Queiroz
  - Kalebe Furlan de Oliveira
+
+# DER:
+<img src="./schema/schema.png" alt="Diagrama">
