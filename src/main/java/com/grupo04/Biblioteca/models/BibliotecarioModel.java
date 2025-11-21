@@ -33,9 +33,9 @@ public class BibliotecarioModel {
     @Column(name = "ds_email")
     private String dsEmail;
 
-    @Column(name = "dt_cadastro")
+    @Column(name = "dt_cadastro", insertable = false, updatable = false)
     private LocalDateTime dtCadastro;
 
-    @Column(name = "sn_ativo")
+    @Column(name = "sn_ativo", insertable = false, updatable = false)
     private char snAtivo;
 }
