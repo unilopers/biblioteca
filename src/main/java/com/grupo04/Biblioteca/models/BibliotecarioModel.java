@@ -14,7 +14,12 @@ import java.time.LocalDateTime;
 @Table(name = "bibliotecario")
 public class BibliotecarioModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bibliotecario_seq")
+    @SequenceGenerator(
+            name = "bibliotecario_seq",
+            sequenceName = "bibliotecario_seq",
+            allocationSize = 1
+    )
     @Column(name = "cd_bibliotecario")
     private Long cdBibliotecario;
 
