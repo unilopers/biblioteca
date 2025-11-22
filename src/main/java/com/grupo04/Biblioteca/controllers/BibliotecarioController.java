@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/bibliotecario")
+@RequestMapping("/bibliotecarios")
 public class BibliotecarioController {
     @Autowired
     public BibliotecarioRepository repository;
