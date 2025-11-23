@@ -42,9 +42,9 @@ public class BibliotecarioController {
                 throw new InvalidParameterException("Bibliotecario inexistente!");
             });
             return ResponseEntity.ok(new BibliotecarioDTO(bibliotecario.getCdBibliotecario(),
-                                                        bibliotecario.getNmBibliotecario(),
-                                                        bibliotecario.getDtNascimento(),
-                                                        bibliotecario.getTpSexo()));
+                    bibliotecario.getNmBibliotecario(),
+                    bibliotecario.getDtNascimento(),
+                    bibliotecario.getTpSexo()));
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
@@ -80,12 +80,50 @@ public class BibliotecarioController {
         }
     }
 
+    @PatchMapping("/{id}/{atributo}/{novo}")
+    public ResponseEntity patch(@PathVariable Long id, @PathVariable String atributo, @PathVariable String novo) {
+
+        BibliotecarioModel bibliotecario;
+        try {
+            bibliotecario = repository.findById(id).orElseThrow(() -> {
+                throw new InvalidParameterException("Bibliotecario inexistente!");
+            });
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+
+        try {
+            switch (atributo) {
+                case "nome":
+                    bibliotecario.setNmBibliotecario(novo);
+                    break;
+                case "senha":
+                    bibliotecario.setCdSenha(novo);
+                    break;
+                case "sexo":
+                    bibliotecario.setTpSexo(novo.charAt(0));
+                    break;
+                case "email":
+                    bibliotecario.setDsEmail(novo);
+                    break;
+                default:
+                    throw new InvalidParameterException("Atributo inexistente!");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+
+        repository.save(bibliotecario);
+
+        return ResponseEntity.ok().build();
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity <?> delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         try {
             repository.deleteById(id);
             return ResponseEntity.ok().build();
-        }catch (Exception e) {
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
