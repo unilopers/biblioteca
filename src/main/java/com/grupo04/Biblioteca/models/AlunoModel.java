@@ -37,5 +37,4 @@ public class AlunoModel {
     @Column (name = "sn_ativo")
     private char sn_ativo;
 
-
 }
