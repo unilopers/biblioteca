@@ -61,6 +61,25 @@ public class BibliotecarioController {
         }
     }
 
+    @PutMapping
+    public ResponseEntity update(@RequestBody BibliotecarioModel bibliotecario) {
+        try {
+            BibliotecarioModel bibliotecarioAtual = repository.findById(bibliotecario.getCdBibliotecario()).orElseThrow(() -> {
+                throw new InvalidParameterException("Bibliotecario inexistente!");
+            });
+
+            bibliotecarioAtual.setNmBibliotecario(bibliotecario.getNmBibliotecario());
+            bibliotecarioAtual.setCdSenha(bibliotecario.getCdSenha());
+            bibliotecarioAtual.setTpSexo(bibliotecario.getTpSexo());
+            bibliotecarioAtual.setDtNascimento(bibliotecario.getDtNascimento());
+            repository.save(bibliotecarioAtual);
+            return ResponseEntity.ok().build();
+
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity <?> delete(@PathVariable Long id) {
         try {
