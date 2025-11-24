@@ -26,8 +26,9 @@ public class LivroModel {
     @Column(name = "cd_bibliotecario")
     private Long cd_bibliotecario;
 
-    @Column(name = "cd_categoria")
-    private Long cd_categoria;
+    @ManyToOne
+    @JoinColumn(name = "cd_categoria", referencedColumnName = "cd_categoria")
+    private CategoriaModel categoria;
 
     @Column(name = "cd_autor")
     private Long cd_autor;
