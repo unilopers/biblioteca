@@ -32,3 +32,18 @@ public class AutorController {
         return autorRepository.findById(id);
     }
 
+    @PutMapping("/{id}")
+    public Autor atualizarAutor(@PathVariable Integer id, @RequestBody Autor autorAtualizado) {
+
+        return autorRepository.findById(id).map(autor -> {
+            autor.setNome(autorAtualizado.getNome());
+            autor.setAtivo(autorAtualizado.getAtivo());
+            return autorRepository.save(autor);
+        }).orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletarAutor(@PathVariable Integer id) {
+        autorRepository.deleteById(id);
+    }
+}
