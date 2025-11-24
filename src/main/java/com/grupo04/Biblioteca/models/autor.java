@@ -10,4 +10,4 @@ public class autor {
 private Integer id;
 
 @Column(name = "nm_autor", nullable = false, length = 50)
-private String nome;
+private String nome; 
