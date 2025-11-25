@@ -30,7 +30,7 @@ public class LivroController {
             dtoList.add(new LivroDTO(
                     livroModel.getCd_livro(),
                     livroModel.getNm_livro(),
-                    livroModel.getCd_categoria(),
+                    livroModel.getCategoria(),
                     livroModel.getCd_autor(),
                     livroModel.getCd_bibliotecario(),
                     livroModel.getCd_aluno(),
@@ -51,7 +51,7 @@ public class LivroController {
             return ResponseEntity.ok(new LivroDTO(
                     livroModel.getCd_livro(),
                     livroModel.getNm_livro(),
-                    livroModel.getCd_categoria(),
+                    livroModel.getCategoria(),
                     livroModel.getCd_autor(),
                     livroModel.getCd_bibliotecario(),
                     livroModel.getCd_aluno(),
@@ -83,7 +83,7 @@ public class LivroController {
             livroAtual.setCd_livro(livroAtualizado.getCd_livro());
             livroAtual.setNm_livro(livroAtualizado.getNm_livro());
             livroAtual.setCd_bibliotecario(livroAtualizado.getCd_bibliotecario());
-            livroAtual.setCd_categoria(livroAtualizado.getCd_categoria());
+            livroAtual.setCategoria(livroAtualizado.getCategoria());
             livroAtual.setCd_autor(livroAtualizado.getCd_autor());
             livroAtual.setCd_aluno(livroAtualizado.getCd_aluno());
             livroAtual.setCd_professor(livroAtualizado.getCd_professor());
@@ -115,10 +115,10 @@ public class LivroController {
                     livro.setNm_livro(novoValor);
                     break;
                 case "autor":
-                    livro.setCd_autor(Long.valueOf(novoValor));
+                    livro.setCd_autor(Long.parseLong(novoValor));
                     break;
                 case "categoria":
-                    livro.setCd_categoria(Long.valueOf(novoValor));
+                    livro.setCategoria(Long.parseLong(novoValor));
                     break;
                 default:
                     throw new InvalidParameterException("Atributo inexistente.");

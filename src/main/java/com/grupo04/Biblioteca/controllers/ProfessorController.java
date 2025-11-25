@@ -3,6 +3,7 @@ package com.grupo04.Biblioteca.controllers;
 import com.grupo04.Biblioteca.models.BibliotecarioModel;
 import com.grupo04.Biblioteca.models.ProfessorModel;
 import com.grupo04.Biblioteca.repository.ProfessorRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/professor")
+@Tag(name = "Professor")
 public class ProfessorController {
     @Autowired
     public ProfessorRepository repository;

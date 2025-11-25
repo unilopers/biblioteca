@@ -1,5 +1,7 @@
 package com.grupo04.Biblioteca.dto;
 
+import com.grupo04.Biblioteca.models.CategoriaModel;
+
 public record LivroDTO(
         Long id,
         String nome,

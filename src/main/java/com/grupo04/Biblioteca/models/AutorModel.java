@@ -1,11 +1,14 @@
 package com.grupo04.Biblioteca.models;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "autor")
-public class Autor {
+@Data
+public class AutorModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,15 +24,7 @@ public class Autor {
     @Column(name = "sn_ativo", nullable = false, length = 1)
     private String ativo;
 
- public Autor() {}
-
-     public Autor(String nome, LocalDateTime dataCadastro, String ativo) {
-        this.nome = nome;
-        this.dataCadastro = dataCadastro;
-        this.ativo = ativo;
-    }
-
- public Integer getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -61,3 +56,4 @@ public class Autor {
         this.ativo = ativo;
     }
 }
+
