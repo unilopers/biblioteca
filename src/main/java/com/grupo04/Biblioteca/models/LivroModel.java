@@ -32,10 +32,10 @@ public class LivroModel {
     @Column(name = "cd_autor")
     private Long cd_autor;
 
-    @Column(name = "cd_aluno")
+    @Column(name = "cd_aluno", nullable = true)
     private Long cd_aluno;
 
-    @Column(name = "cd_professor")
+    @Column(name = "cd_professor",  nullable = true)
     private Long cd_professor;
 
     @Column(name = "sn_locado")
