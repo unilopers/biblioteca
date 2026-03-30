@@ -127,4 +127,17 @@ public class BibliotecarioController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+    @GetMapping("/enviar-aviso-senha")
+    public ResponseEntity<String> enviarAvisoSenha() {
+
+        List<BibliotecarioModel> lista = repository.findAll();
+
+        for (BibliotecarioModel b : lista) {
+            enviarEmail.enviarAvisoTrocaSenha(b.getEmail());
+        }
+
+        return ResponseEntity.ok("Emails enviados!");
+    }
+
 }
