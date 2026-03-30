@@ -2,15 +2,15 @@ package com.grupo04.Biblioteca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-@EnableAsync
 @SpringBootApplication
+@EnableScheduling
 @EnableAsync
 public class BibliotecaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BibliotecaApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(BibliotecaApplication.class, args);
+    }
 }
